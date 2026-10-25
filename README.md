@@ -1,5 +1,7 @@
 # 《Anna's Quest》安娜的冒险 完整中文化补丁（简体／繁体）
 
+<img src="docs/cover.jpg" width="256" alt="封面">
+
 对应 Steam 版 **1.3.4792**（目前的 Steam 版本）。一键安装、一键还原，不用装任何软件。
 
 **[⬇ 点这里到 Releases 下载 AnnasQuest_zh_v1.1.zip（约 32 MB）](https://github.com/toBerlinWay/AnnasQuest-zh/releases/latest)**
