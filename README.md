@@ -4,7 +4,7 @@
 
 对应 Steam 版 **1.3.4792**（目前的 Steam 版本）。一键安装、一键还原，不用装任何软件。
 
-**[⬇ 点这里到 Releases 下载 AnnasQuest_zh_v1.1.zip（约 32 MB）](https://github.com/toBerlinWay/AnnasQuest-zh/releases/latest)**
+**[⬇ 点这里到 Releases 下载 AnnasQuest_zh_v1.2.zip（约 32 MB）](https://github.com/toBerlinWay/AnnasQuest-zh/releases/latest)**
 
 > 请从 Releases 下载 zip。直接点绿色 Code → Download ZIP 下载到的只有安装脚本，没有补丁文件，装不了。
 
@@ -22,26 +22,26 @@
 3. 看到「完成」就可以开游戏，游戏语言保持 English 即可。
 4. 如果提示「找不到游戏文件夹」，把整个解压后的文件夹放进游戏目录（Steam 库里右键游戏 → 管理 → 浏览本地文件）再运行一次。
 
-简体、繁体随时可以互换，直接点另一个 .cmd 就好。
+简体、繁体随时可以互换，直接点另一个 .cmd 就好。已经装过 v1.1 的，直接装 v1.2 就会覆盖，不用先还原。
 
 **还原英文**：双击 `還原英文原版.cmd`。第一次安装时会把原版文件备份到游戏目录的 `_zh_backup` 文件夹；也可以用 Steam 的「验证游戏文件完整性」。
 
-## v1.1 更新内容
+## v1.2 更新内容
 
-- 全部对白和视频字幕重新润色成自然的口语，不再照英文语序直翻。
-- 依角色定语气：安娜天真开朗、班胆小结巴、温妮叛逆嘴硬、雷纳德文雅、巨魔粗鲁、林克兰克用第三人称称呼自己……
-- 咒语、诗、魔镜的台词都改成押韵。
-- 统一用词：雅妮可是「王后」、「道具栏」、教程里的物品名和游戏里一致。
-- 简体版改用大陆口语用词（鼠标、屏幕、菜单、手柄、勺子、哦……），不是单纯繁转简。
-- 修正 v1.0 安装脚本在 Windows 自带 PowerShell 上会出错的问题。
+- 全新译本：全部 11,810 句文字和 84 句视频字幕从英文重新翻译，对白更口语，读起来更像中文原创的童话冒险。
+- 简体版不是繁转简：按大陆玩家的说法逐句重写，语气词、用词和界面用语都改成大陆习惯。
+- 逐句对照英文检查：没有漏翻，也没有对错句子，游戏代码和换行完整保留。
+- 角色语气、译名和押韵的咒语延续 v1.1 的设定。
+
+v1.1 及更早的版本在 [Releases](https://github.com/toBerlinWay/AnnasQuest-zh/releases) 里还能下载。
 
 ## 截图
 
 | 简体版 | 繁体版 |
 |---|---|
-| ![简体 主菜单](docs/01_cn_menu.jpg) | ![繁体 对话](docs/04_tw_dialogue.jpg) |
-| ![简体 序章](docs/02_cn_prologue.jpg) | ![繁体 长句换行](docs/05_tw_wrap.jpg) |
-| ![简体 爷爷](docs/03_cn_grandpa.jpg) | ![繁体 过场字幕](docs/06_tw_video.jpg) |
+| ![简体 主菜单](docs/01_cn_menu.jpg) | ![繁体 对话选项](docs/04_tw_dialogue.jpg) |
+| ![简体 序章对话](docs/02_cn_prologue.jpg) | ![繁体 游戏内文字](docs/05_tw_ingame.jpg) |
+| ![简体 过场字幕](docs/03_cn_video.jpg) | ![繁体 过场字幕](docs/06_tw_video.jpg) |
 
 ## 注意事项
 
@@ -59,5 +59,5 @@
 
 - 游戏《Anna's Quest》版权归 Krams Design 与 Daedalic Entertainment 所有。本补丁为非官方玩家作品，请支持正版。
 - 中文字体使用 Noto Sans TC／SC（© Adobe，SIL Open Font License 1.1），授权全文见 [字型授權_OFL.txt](字型授權_OFL.txt)。
-- 翻译、工具与测试由 Claude（AI）协助完成。
+- 翻译由 Google Gemini（通过 Antigravity）完成；工具、校对检查与测试由 Claude（AI）协助完成。
 - 发现翻译错误或显示问题，欢迎在 [Issues](https://github.com/toBerlinWay/AnnasQuest-zh/issues) 回报，请附截图或那一句的英文原文。
