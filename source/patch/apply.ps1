@@ -7,21 +7,24 @@ $Manifest = Get-Content "$Here\manifest.json" -Raw -Encoding UTF8 | ConvertFrom-
 $Label = @{ tw = '繁體中文'; cn = '簡體中文'; original = '英文原版' }[$Variant]
 
 function Hash($p) { (Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLower() }
+# 找遊戲時只用字串組路徑：Join-Path 遇到不存在的磁碟機（例如 Steam 遊戲庫在已拔掉的外接硬碟上）會丟 DriveNotFoundException，
+# 在 $ErrorActionPreference = 'Stop' 下整支腳本直接中止。[IO.Path]::Combine 只拼字串，不檢查磁碟機。
+function Join-PathSafe([string]$a, [string]$b) { [System.IO.Path]::Combine($a, $b) }
 function Find-Game {
-  if ($Game -and (Test-Path (Join-Path $Game 'data.vis'))) { return $Game }
+  if ($Game -and (Test-Path (Join-PathSafe $Game 'data.vis'))) { return $Game }
   $c = @()
   $reg = Get-ItemProperty 'HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 327220' -ErrorAction SilentlyContinue
   if ($reg -and $reg.InstallLocation) { $c += $reg.InstallLocation }
   $steam = (Get-ItemProperty 'HKCU:\Software\Valve\Steam' -ErrorAction SilentlyContinue).SteamPath
   if ($steam) {
-    $c += (Join-Path $steam "steamapps\common\Anna's Quest")
-    $vdf = Join-Path $steam 'steamapps\libraryfolders.vdf'
-    if (Test-Path $vdf) { Select-String -Path $vdf -Pattern '"path"\s+"([^"]+)"' -AllMatches | ForEach-Object { $_.Matches } | ForEach-Object { $c += (Join-Path ($_.Groups[1].Value -replace '\\\\','\') "steamapps\common\Anna's Quest") } }
+    $c += (Join-PathSafe $steam "steamapps\common\Anna's Quest")
+    $vdf = Join-PathSafe $steam 'steamapps\libraryfolders.vdf'
+    if (Test-Path $vdf) { Select-String -Path $vdf -Pattern '"path"\s+"([^"]+)"' -AllMatches | ForEach-Object { $_.Matches } | ForEach-Object { $c += (Join-PathSafe ($_.Groups[1].Value -replace '\\\\','\') "steamapps\common\Anna's Quest") } }
   }
   $pkgRoot = Split-Path -Parent $Here
   $c += $pkgRoot                          # 補丁包的檔案直接解壓在遊戲資料夾裡
   $c += (Split-Path -Parent $pkgRoot)     # 整個補丁包資料夾放進遊戲資料夾裡
-  foreach ($d in $c) { if ($d -and (Test-Path (Join-Path $d 'data.vis'))) { return $d } }
+  foreach ($d in $c) { if ($d -and (Test-Path (Join-PathSafe $d 'data.vis'))) { return $d } }
   return $null
 }
 function Apply-Patch($origPath, $patchPath, $outPath) {
