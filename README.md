@@ -4,7 +4,7 @@
 
 对应 Steam 版 **1.3.4792**（目前的 Steam 版本）。一键安装、一键还原，不用装任何软件。
 
-**[⬇ 点这里到 Releases 下载 AnnasQuest_zh_v1.2.zip（约 32 MB）](https://github.com/toBerlinWay/AnnasQuest-zh/releases/latest)**
+**[⬇ 点这里到 Releases 下载 AnnasQuest_zh_v1.2.1.zip（约 32 MB）](https://github.com/toBerlinWay/AnnasQuest-zh/releases/latest)**
 
 > 请从 Releases 下载 zip。直接点绿色 Code → Download ZIP 下载到的只有安装脚本，没有补丁文件，装不了。
 
@@ -22,9 +22,14 @@
 3. 看到「完成」就可以开游戏，游戏语言保持 English 即可。
 4. 如果提示「找不到游戏文件夹」，把整个解压后的文件夹放进游戏目录（Steam 库里右键游戏 → 管理 → 浏览本地文件）再运行一次。
 
-简体、繁体随时可以互换，直接点另一个 .cmd 就好。已经装过 v1.1 的，直接装 v1.2 就会覆盖，不用先还原。
+简体、繁体随时可以互换，直接点另一个 .cmd 就好。已经装过 v1.1 或 v1.2 的，直接装 v1.2.1 就会覆盖，不用先还原。
 
 **还原英文**：双击 `還原英文原版.cmd`。第一次安装时会把原版文件备份到游戏目录的 `_zh_backup` 文件夹；也可以用 Steam 的「验证游戏文件完整性」。
+
+## v1.2.1 更新内容（2026-11-02）
+
+- 修复：Steam 游戏库里还记着已经拔掉的硬盘（或已删除的分区）时，安装程序会直接报错退出。
+- 译本和 v1.2 相同，已经装好 v1.2 的不用重装。
 
 ## v1.2 更新内容
 
